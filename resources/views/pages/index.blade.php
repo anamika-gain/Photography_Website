@@ -1,6 +1,6 @@
 @extends('frontend.master.app')
 @section('content')
- @include('frontend.master.menu')
+    @include('frontend.master.menu')
 
 
     @php
@@ -12,7 +12,7 @@
 
     @endphp
     <!-- scroll-content start -->
-    <div id="js-scroll-content">
+    <div id="content">
         <!-- js-animsition-overlay start -->
         <div class="js-animsition-overlay" data-animsition-overlay="true">
             <!-- main start -->
@@ -41,9 +41,9 @@
                                             Photoshoot
                                         </div>
                                         <h2 class="headline-xxl headline-uppercase">
-                                            <a href="project_05.html"
-                                                class="anim-chars-fadein js-pointer-large js-animsition-link"
-                                                data-splitting>{{ $row->category_name }}</a>
+                                            <a href="{{ url("category/{$row->id}") }}"
+                                                class="anim-chars-fadein js-pointer-large js-animsition-link" data-splitting
+                                                style=" font-family:'Nomark'">{{ $row->category_name }}</a>
                                         </h2>
                                     </div>
                                 </div>
@@ -51,7 +51,8 @@
                                 <!-- btn start -->
                                 <div class="fullscreen-slider-btn">
                                     <div class="anim-fade-to-left">
-                                        <a href="project_05.html" class="line-btn js-pointer-small js-animsition-link">See
+                                        <a href="{{ url("category/{$row->id}") }}"
+                                            class="line-btn js-pointer-small js-animsition-link">See
                                             the case</a>
                                     </div>
                                 </div>

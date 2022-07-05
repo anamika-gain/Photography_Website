@@ -537,3 +537,20 @@
     </footer>
 </div><!-- sl-mainpanel -->
 <!-- ########## END: MAIN PANEL ########## -->
+
+
+
+
+if ($image = $request->file('image')) {
+    $destinationPath = 'image/';
+    $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+    $image->move($destinationPath, $profileImage);
+    $input['image'] = "$profileImage";
+}else{
+    unset($input['image']);
+}
+
+$product->update($input);
+
+return redirect()->route('products.index')
+                ->with('success','Product updated successfully');

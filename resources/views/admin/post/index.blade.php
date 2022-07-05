@@ -8,19 +8,36 @@
             </div><!-- sl-page-title -->
 
             <div class="card pd-20 pd-sm-40">
-                <h6 class="card-body-title">post List </h6>
+                <h6 class="card-body-title">post List <a href="{{ route('add.post') }}"
+                        class="btn btn-teal btn-sm pull-right">Add
+                        Post</a> </h6>
+                @if (session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <br>
                 <div class="table-wrapper">
-                    <table id="datatable1" class="table display responsive nowrap">
+                    <table id="post_table" class="table table-responsive">
                         <thead>
                             <tr>
-                                <th class="wd-15p">post ID</th>
-                                <th class="wd-15p">category Name</th>
+                                <th class="wd-5p">post ID</th>
+                                <th class="wd-10p">category Name</th>
+                                <th class="wd-10p">Project Name</th>
                                 <th class="wd-15p">Image one</th>
                                 <th class="wd-15p">Image Two</th>
                                 <th class="wd-15p">Post Type</th>
                                 <th class="wd-8p">Sequence</th>
-                                <th class="wd-15p">Status</th>
+                                <th class="wd-10p">Status</th>
                                 <th class="wd-20p">Action</th>
                             </tr>
                         </thead>
@@ -32,8 +49,16 @@
                                         $categoryName = App\Models\Category::where('id', '=', $row->category_id)->first();
                                     @endphp
                                     <td>{{ $categoryName->category_name }}</td>
-                                    <td><img src="{{ URL::to($row->image_one) }}" height="50px;" width="50px;"></td>
-                                    <td><img src="{{ URL::to($row->image_two) }}" height="50px;" width="50px;"></td>
+                                    @php
+                                        //  dd($row->project_id);
+                                        $projectName = App\Models\project::where('id', '=', $row->project_id)->first();
+                                        
+                                    @endphp
+                                    <td>{{ $projectName->project_name }}</td>
+                                    <td><img src="{{ asset('public/media/post/' . $row->image_one) }}" height="50px;"
+                                            width="50px;"></td>
+                                    <td><img src="{{ asset('public/media/post/' . $row->image_two) }}" height="50px;"
+                                            width="50px;"></td>
                                     <td>{{ $row->post_type }}</td>
                                     <td>{{ $row->sequence }}</td>
                                     <td>
@@ -67,8 +92,26 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $post->links() }}
                 </div><!-- table-wrapper -->
             </div><!-- card -->
         </div><!-- sl-pagebody -->
     </div>
+
+@endsection
+@section('extra-js')
+    <script>
+        $(function() {
+            'use strict';
+            $('#post_table').DataTable({
+                responsive: true,
+                language: {
+                    searchPlaceholder: 'Search...',
+                    sSearch: '',
+                    lengthMenu: '_MENU_ items/page',
+                }
+            });
+
+        });
+    </script>
 @endsection

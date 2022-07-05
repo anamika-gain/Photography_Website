@@ -25,6 +25,7 @@
     <!-- styles -->
     <link href="{{ asset('public/frontend/assets/css/plugins.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('public/frontend/assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+    @yield('extra-css')
 </head>
 
 <body class="preloader cursor-anim-enable">
@@ -50,8 +51,8 @@
     <header class="fixed-header">
         <!-- logo start -->
         <div class="header-logo color-mix-blend-normal">
-            <a href="index.html" class="header-logo__box js-pointer-large js-animsition-link">
-                <h2>RAAD RAHMAN</h2>
+            <a href="{{ URL::to('/') }}" class="header-logo__box js-pointer-large js-animsition-link">
+                <h2 style="font-family:'Nomark">RAAD RAHMAN</h2>
             </a>
         </div>
         <!-- logo end -->
@@ -74,5 +75,7 @@
 
     <script src="{{ asset('public/frontend/assets/js/plugins.js') }}"></script>
     <script src="{{ asset('public/frontend/assets/js/main.js') }}"></script>
+    @yield('extra-js')
+</body>
 
 </html>

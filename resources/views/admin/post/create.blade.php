@@ -19,10 +19,25 @@
             <a class="breadcrumb-item" href="#">photography</a>
             <span class="breadcrumb-item active">Post Section</span>
         </nav>
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="sl-pagebody">
             <div class="card pd-20 pd-sm-40">
-                <h6 class="card-body-title">New Post Add Form <a href="#" class="btn btn-teal btn-sm pull-right">All
-                        Product</a></h6>
+                <h6 class="card-body-title">New Post Add Form <a href="{{ route('all.post') }}"
+                        class="btn btn-teal btn-sm pull-right">All
+                        Posts</a></h6>
 
                 <form action="{{ route('store.post') }}" method="post" enctype="multipart/form-data">
                     @csrf
@@ -33,7 +48,7 @@
                                     <label class="form-control-label">Category: <span
                                             class="tx-danger">*</span></label>
                                     <select class="form-control select2" data-placeholder="Choose Category"
-                                        name="category_id">
+                                        name="category_id" onchange="getProjects(this.value)">
                                         <option label="Choose Category"></option>
                                         @foreach ($category as $row)
                                             <option value="{{ $row->id }}">{{ $row->category_name }}</option>
@@ -44,9 +59,9 @@
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">
                                     <label class="form-control-label">Project: <span class="tx-danger">*</span></label>
-                                    <select class="form-control select2" data-placeholder="Choose Category"
-                                        name="project_id">
-                                        <option label="Choose Project"></option>
+                                    <select class="form-control select2" data-placeholder="Choose Project" name="project_id"
+                                        id="projectsHolder">
+                                        <option label="Choose Project">Choose Project</option>
                                         @foreach ($project as $row)
                                             <option value="{{ $row->id }}">{{ $row->project_name }}</option>
                                         @endforeach
@@ -66,8 +81,7 @@
                                 <div class="form-group mg-b-10-force">
                                     <label class="form-control-label">Post Type : <span
                                             class="tx-danger">*</span></label>
-                                    <select class="form-control select2 postType" data-placeholder="Choose Category"
-                                        name="post_type[]">
+                                    <select class="form-control select2 postType" data-placeholder="Choose Category">
                                         <option value="landscape">Landscape</option>
                                         <option value="potrait">Potrait</option>
                                         <option value="text">Text</option>
@@ -90,77 +104,6 @@
 
                         </div>
                         <!-- row -->
-
-
-                        {{-- <div class="card card-body bg-gray-200 mb-3">
-                            <input type="hidden" class="textSerialNo">
-
-                            <div class="row mg-b-25">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Post Text<span
-                                                class="tx-danger">*</span></label>
-                                        <a href="#" class="badge badge-danger pull-right"><i class="fa fa-close"
-                                                style="font-size:20px"></i></a>
-                                        <input type="hidden" name="sequence[]">
-                                        <textarea class="form-control summernote" name="post_text[]"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-
-                        {{-- <div class="card card-body bg-gray-200 ">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label class="form-control-label"> Landscape Image Size (1920 *1280 ) <span
-                                                class="tx-danger">*</span></label>
-                                        <a href="#" class="badge badge-danger pull-right"><i class="fa fa-close"
-                                                style="font-size:20px"></i></a>
-                                        <label class="custom-file">
-                                            <span class="custom-file-control custom-file-control-primary">Choose
-                                                Image</span>
-                                            <input type="file" id="file2" class="custom-file-input">
-
-                                        </label>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="card card-body bg-gray-200 mt-3">
-                            <div class="row mg-b-25">
-
-                                <div class="col-lg-6 mg-t-40 mg-lg-t-0">
-                                    <div class="form-group">
-                                        <label class="form-control-label"> Potrait Image Size (1280 *1818 ) <span
-                                                class="tx-danger">*</span></label>
-
-                                        <label class="custom-file">
-                                            <input type="file" id="file2" class="custom-file-input">
-                                            <span class="custom-file-control custom-file-control-primary"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mg-t-40 mg-lg-t-0">
-                                    <div class="form-group">
-                                        <label class="form-control-label"> Potrait Image Size (1280 *1818 ) <span
-                                                class="tx-danger">*</span></label>
-                                        <a href="#" class="badge badge-danger pull-right"><i class="fa fa-close"
-                                                style="font-size:20px"></i></a>
-
-                                        <label class="custom-file">
-                                            <input type="file" id="file2" class="custom-file-input" placeholder="image">
-                                            <span class="custom-file-control custom-file-control-primary"></span>
-                                        </label>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div> --}}
-
                     </div>
 
                     <br>
@@ -187,34 +130,6 @@
 
 
     <script type="text/javascript">
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#one')
-                        .attr('src', e.target.result)
-                        .width(280)
-                        .height(280);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
-    <script type="text/javascript">
-        function readURL1(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#two')
-                        .attr('src', e.target.result)
-                        .width(280)
-                        .height(280);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
-    <script type="text/javascript">
         $(function() {
             'use strict';
 
@@ -240,26 +155,35 @@
             var selected_val = $('.postType').find('option:selected').val();
             // alert('value: ' + selected_val2);
 
-            var textDiv = `<div class="card card-body bg-gray-200 mb-3 mt-3">
+            var textDiv = `<div id="text_remove" class="card card-body bg-gray-200 mb-3 mt-3">
                              <input type="hidden" class="serialNo" value="1" name="sequence[]">
+                             <input type="hidden" class="form-group" value="text" name="post_type[]">
 
-                            
                             <div class="row mg-b-25">
+                                 <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Post Name<span
+                                                class="tx-danger">*</span></label>
+                                        <a href="#" class="badge badge-danger pull-right textDivClose" onclick="text_click()"><i class="fa fa-close"
+                                                style="font-size:20px"></i></a>
+
+                                        <textarea class="form-control" name="post_name[]"></textarea>
+                                    </div>
+                                </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="form-control-label">Post Text<span
                                                 class="tx-danger">*</span></label>
-                                        <a href="#" class="badge badge-danger pull-right textDivClose"><i class="fa fa-close"
-                                                style="font-size:20px"></i></a>
-                                        
-                                        <textarea class="form-control summernote" name="post_text[]"></textarea>
+                                        <textarea class="form-control summernote" name="text[]"></textarea>
                                     </div>
                                 </div>
+
                             </div>
                         </div>`;
 
             var potraitDiv = `
-                        <div class="card card-body bg-gray-200 mt-3 mb-3">
+                        <div id="potrait_remove" class="card card-body bg-gray-200 mt-3 mb-3">
+                            <input type="hidden" class="form-group" value="potrait" name="post_type[]">
                             <input type="hidden" class="serialNo" value="1" name="sequence[]">
                             <div class="row mg-b-25">
 
@@ -268,45 +192,56 @@
                                         <label class="form-control-label"> Potrait Image Size (1280 *1818 ) <span
                                                 class="tx-danger">*</span></label>
 
-                                        <label class="custom-file">
-                                            <input type="file" id="file2" class="custom-file-input" name=image_one[]>
-                                            <span class="custom-file-control custom-file-control-primary"></span>
-                                        </label>
-                        
+                                      <label class="form-control-label">
+                                        <input type="file" id="file" class="input-file uniform_on" name=image_one_p[]
+                                        onchange="readURL(this);" required="" accept="image">
+
+                                        <img src="#" id="one">
+                                       </label>
+
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mg-t-40 mg-lg-t-0">
                                     <div class="form-group">
                                         <label class="form-control-label"> Potrait Image Size (1280 *1818 ) <span
                                                 class="tx-danger">*</span></label>
-                                        <a href="#" class="badge badge-danger pull-right potraitDivClose"><i class="fa fa-close"
+                                        <a href="#" class="badge badge-danger pull-right potraitDivClose" onclick="potrait_click()"><i class="fa fa-close"
                                                 style="font-size:20px"></i></a>
 
+
                                         <label class="custom-file">
-                                            <input type="file" id="file2" class="custom-file-input" name=image_two[]>
-                                            <span class="custom-file-control custom-file-control-primary"></span>
-                                        </label>
+                                        <input type="file" id="file"  class="input-file uniform_on" name=image_two_p[]
+                                        onchange="readURL1(this);" required="" accept="image">
+                                        <img src="#" id="two">
+                                       </label>
+
+
                                     </div>
                                 </div>
 
                             </div>
                         </div>`;
-            var landScapeDiv = `<div class="card card-body bg-gray-200 mt-3 mb-3">
+            var landScapeDiv = `<div id="landscape_remove" class="card card-body bg-gray-200 mt-3 mb-3">
                 <input type="hidden" class="serialNo" value="1" name="sequence[]">
+                <input type="hidden" class="form-group" value="landscape" name="post_type[]">
                             <div class="row">
-                                <div class="col-lg-12">
+                                <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label"> Landscape Image Size (1920 *1280 ) <span
                                                 class="tx-danger">*</span></label>
-                                        <a href="#" class="badge badge-danger pull-right landScapeDivClose"><i class="fa fa-close"
+                                        <a href="#" class="badge badge-danger pull-right landScapeDivClose" onclick="landscape_click()"><i class="fa fa-close"
                                                 style="font-size:20px"></i></a>
-                                        <label class="custom-file">
-                                            <span class="custom-file-control custom-file-control-primary">Choose
-                                                Image</span>
-                                            <input type="file" id="file2" class="custom-file-input" name=image_one[]>
 
-                                        </label>
+                                       <label class="custom-file">
+                                        <input type="file" id="file" class="input-file uniform_on" name=image_one_l[]
+                                        onchange="readURL(this);" required="" accept="image">
 
+                                       </label>
+                                    </div>
+                                </div>
+                                       <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <img src="#" id="one">
                                     </div>
                                 </div>
                             </div>
@@ -333,8 +268,61 @@
 
         }
 
-        $(".textDivClose").on("click", function() {
-            console.log('gg');
-        });
+        function text_click() {
+            document.getElementById("text_remove")
+                .outerHTML = "";
+        }
+
+        function potrait_click() {
+            document.getElementById("potrait_remove")
+                .outerHTML = "";
+        }
+
+        function landscape_click() {
+            document.getElementById("landscape_remove")
+                .outerHTML = "";
+        }
+
+        function getProjects(id) {
+            var appUrl = "{{ URL::to('/') }}";
+            $.get(appUrl + "/admin/get/projects/" + id, function(projects) {
+                var pp = `<option label="Choose Project">Choose Project</option>`;
+                for (var i in projects) {
+                    pp = pp + `<option value="` + projects[i]['id'] + `">` + projects[i]['project_name'] +
+                        `</option>`;
+                }
+                $('#projectsHolder').html(pp);
+            });
+        }
     </script>
+
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#one')
+                        .attr('src', e.target.result)
+                        .width(80)
+                        .height(80);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        function readURL1(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#two')
+                        .attr('src', e.target.result)
+                        .width(80)
+                        .height(80);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
 @endsection

@@ -20,18 +20,20 @@
                         <!-- video-bg-box end -->
 
                         <!-- bg-overlay -->
-                        <div class="bg-overlay-black"></div>
+                        <div class="bg-overlay-light"></div>
 
                         <!-- flex-min-height-100vh start -->
                         <div class="flex-min-height-100vh">
                             <div class="padding-top-bottom-150 container small">
                                 <h2 class="headline-xxl headline-uppercase after-preloader-anim">
                                     <span class="d-block">
-                                        <span class="anim-chars-fadein" data-splitting>Let's</span>
+                                        <span class="anim-chars-fadein" data-splitting
+                                            style="font-family: 'Nomark'">Let's</span>
                                     </span>
                                     <span class="d-block" data-scroll data-scroll-speed="-0.4"
                                         data-scroll-position="top">
-                                        <span class="anim-chars-fadein" data-splitting>Work Together</span>
+                                        <span class="anim-chars-fadein" data-splitting style="font-family: 'Nomark'">Work
+                                            Together</span>
                                     </span>
                                     <span class="d-block" data-scroll data-scroll-speed="-0.8"
                                         data-scroll-position="top">
@@ -54,7 +56,7 @@
                 <!-- page head end -->
 
                 <!-- contact us start -->
-                <section id="down" class="section-bg-dark" data-scroll-section>
+                <section id="down" class="section-bg-light" data-scroll-section>
                     <!-- flex-min-height-100vh start -->
                     <div class="flex-min-height-100vh">
                         <!-- flex-container start -->
@@ -63,9 +65,10 @@
                             <div class="six-columns column-100-999 padding-top-90">
                                 <div class="column-r-margin-20-999 hidden-box">
                                     <div data-scroll data-scroll-speed="-1.3">
-                                        <div class="anim-img-reveal" data-scroll data-scroll-offset="20%" style="
-                                                                          background-image:url({{ asset('public/frontend/assets/images/contact/contact.jpg') }});
-                                                                        ">
+                                        <div class="anim-img-reveal" data-scroll data-scroll-offset="20%"
+                                            style="
+                                                                                                                                  background-image:url({{ asset('public/frontend/assets/images/contact/contact.jpg') }});
+                                                                                                                                ">
                                             <img src="{{ asset('public/frontend/assets/images/contact/contact.jpg') }}"
                                                 alt="Contact photo" />
                                         </div>
@@ -81,7 +84,7 @@
                                     <!-- title start -->
                                     <h2 class="padding-bottom-90 d-inline-block">
                                         <a href="#"
-                                            class="text-left-offset headline-xl headline-uppercase hover-stroke-fill-white js-pointer-large"
+                                            class="text-left-offset headline-xl headline-uppercase hover-stroke-fill-black js-pointer-large"
                                             data-text="contact us">contact us</a>
                                     </h2>
                                     <!-- title end -->
@@ -89,83 +92,28 @@
                                     <!-- pos-rel start -->
                                     <div class="pos-rel">
                                         <!-- anim-line-top -->
-                                        <div class="anim-line-top" data-scroll data-scroll-offset="20%"></div>
+                                        <div class="anim-line-top" data-scroll data-scroll-offset="20%"
+                                            style="color: black"></div>
 
                                         <!-- flex-container start -->
                                         <div class="flex-container">
                                             <!-- column start -->
                                             <div class="six-columns padding-top-30">
                                                 <div class="column-r-margin-20">
-                                                    <h4 class="headline-xxxxs">General contact</h4>
+                                                    <h4 class="headline-xxxxs" style="color: black; font-size:30px; ">
+                                                        GENERAL CONTACT</h4>
                                                     <div class="margin-top-20">
+
+
                                                         <a href="#"
-                                                            class="subhead-xxs text-color-b0b0b0 text-hover-to-white js-pointer-small">+23
-                                                            8 8532 7834</a>
-                                                        <div class="margin-top-bottom-5">
-                                                            <p class="subhead-xxs text-color-b0b0b0">
-                                                                9.00 — 18.00, Mon to Fri
-                                                            </p>
-                                                        </div>
-                                                        <a href="#"
-                                                            class="line-btn text-color-b0b0b0 text-hover-to-white js-pointer-small">email@tumar_agency.com</a>
+                                                            class="line-btn text-color-b0b0b0 text-hover-to-black js-pointer-small"
+                                                            style="color: black; font-size:30px;">email@tumar_agency.com</a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- column end -->
 
-                                            <!-- column start -->
-                                            <div class="six-columns padding-top-30">
-                                                <div class="column-r-margin-20">
-                                                    <h4 class="headline-xxxxs">Marketing</h4>
-                                                    <div class="margin-top-20">
-                                                        <a href="#"
-                                                            class="subhead-xxs text-color-b0b0b0 text-hover-to-white js-pointer-small">+23
-                                                            8 8852 7435</a>
-                                                        <div class="margin-top-bottom-5">
-                                                            <p class="subhead-xxs text-color-b0b0b0">
-                                                                9.00 — 18.00, Mon to Fri
-                                                            </p>
-                                                        </div>
-                                                        <a href="#"
-                                                            class="line-btn text-color-b0b0b0 text-hover-to-white js-pointer-small">email@tumar_marketing.com</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- column end -->
 
-                                            <!-- column start -->
-                                            <div class="six-columns padding-top-30">
-                                                <div class="column-r-margin-20">
-                                                    <h4 class="headline-xxxxs">Address</h4>
-                                                    <div class="margin-top-20">
-                                                        <p class="subhead-xxs text-color-b0b0b0">
-                                                            PO Box 223158 Oliver Street<br />
-                                                            East Victoria 2006 UK
-                                                        </p>
-                                                        <div class="margin-top-5">
-                                                            <a href="#"
-                                                                class="line-btn text-color-b0b0b0 text-hover-to-white js-pointer-small">open
-                                                                in google maps</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- column end -->
-
-                                            <!-- column start -->
-                                            <div class="six-columns padding-top-30">
-                                                <div class="column-r-margin-20">
-                                                    <h4 class="headline-xxxxs">Careers</h4>
-                                                    <div class="margin-top-20">
-                                                        <a href="#"
-                                                            class="line-btn text-color-b0b0b0 text-hover-to-white js-pointer-small">email@tumar_career.com</a>
-                                                        <div class="margin-top-5">
-                                                            <a href="#"
-                                                                class="line-btn text-color-b0b0b0 text-hover-to-white js-pointer-small">email@tumar_job.com</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <!-- column end -->
                                         </div>
                                         <!-- flex-container end -->
@@ -185,17 +133,17 @@
                 <!-- form section start -->
                 <section class="pos-rel hidden-box" data-scroll-section>
                     <!-- bg-parallax -->
-                    <div class="bg-parallax" style="
-                                                                background-image: url(assets/images/backgrounds/watcharlie-gGtRPDcW5kE-unsplash.jpg);
-                                                              " data-scroll data-scroll-speed="-1.5"></div>
+                    <div class="bg-parallax"
+                        style="background-image: url('{{ asset('public/frontend/assets/images/backgrounds/watcharlie-gGtRPDcW5kE-unsplash.jpg') }}')"
+                        data-scroll data-scroll-speed="-1.5"></div>
 
                     <!-- bg-overlay -->
-                    <div class="bg-overlay-black bg-overlay-black_deep"></div>
+                    <div class="bg-overlay-white bg-overlay-white_deep"></div>
 
                     <!-- flex-min-height-100vh start -->
-                    <div class="flex-min-height-100vh">
+                    <div class="flex-min-height-30vh">
                         <!-- container start -->
-                        <div class="container small padding-top-bottom-150">
+                        <div class="container small padding-top-bottom-100">
                             <!-- pos-rel start -->
                             <div class="pos-rel">
                                 <!-- form-box start -->
@@ -252,8 +200,7 @@
                                             <!-- column start -->
                                             <div class="twelve-columns padding-top-30">
                                                 <div class="column-l-r-margin-10 pos-rel">
-                                                    <textarea name="message" id="message" required
-                                                        class="form-input js-pointer-small"></textarea>
+                                                    <textarea name="message" id="message" required class="form-input js-pointer-small"></textarea>
                                                     <label for="message" class="form-label tr-delay-03"
                                                         data-text="Message content">Message content</label>
                                                     <div class="anim-line-bottom tr-delay-03"></div>

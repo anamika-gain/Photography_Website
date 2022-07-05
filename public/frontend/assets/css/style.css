@@ -116,6 +116,7 @@
 
    ========================================================================== */
 
+
 /* ==========================================================================
    1. Basics
    ========================================================================== */
@@ -133,6 +134,16 @@
 @font-face {
     font-family: Font Awesome;
     src: url('../webfonts/fa-solid-900.ttf') format('truetype'), url('../webfonts/fa-solid-900.woff') format('woff'), url('../webfonts/fa-solid-900.woff2') format('woff2'), url('../webfonts/fa-solid-900.svg') format('svg'), url('../webfonts/fa-solid-900.eot');
+}
+
+@font-face {
+    font-family: Nomark;
+    src: url('../Font/Nomark.otf');
+}
+
+@font-face {
+    font-family: Garet-Book;
+    src: url('../Font/Garet-Book.ttf');
 }
 
 html {
@@ -224,6 +235,7 @@ pre code {
     white-space: pre-wrap;
 }
 
+
 /* ==========================================================================
    2. Helpers
    ========================================================================== */
@@ -236,6 +248,7 @@ pre code {
     pointer-events: none;
 }
 
+
 /* 2.1. Border radius
    ========================================================================== */
 
@@ -246,6 +259,7 @@ pre code {
 .border-radius-10px {
     border-radius: 10px;
 }
+
 
 /* 2.2. Width & height
    ========================================================================== */
@@ -282,12 +296,14 @@ pre code {
     max-width: 300px;
 }
 
+
 /* 2.3. Z-index
    ========================================================================== */
 
 .z-index-2 {
     z-index: 2;
 }
+
 
 /* 2.4. Background cover
    ========================================================================== */
@@ -297,6 +313,7 @@ pre code {
     background-position: center center;
     background-repeat: no-repeat;
 }
+
 
 /* 2.5. Display settings
    ========================================================================== */
@@ -338,8 +355,10 @@ pre code {
     flex-flow: wrap;
 }
 
+
 /* 2.6. Paddings & margins
    ========================================================================== */
+
 
 /* Paddings */
 
@@ -504,17 +523,35 @@ pre code {
     padding-bottom: 10px;
 }
 
+.padding-top-bottom-0 {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
 .padding-top-10 {
     padding-top: 10px;
+}
+
+.padding-top-0 {
+    padding-top: 0px;
 }
 
 .padding-bottom-10 {
     padding-bottom: 10px;
 }
 
+.padding-bottom-0 {
+    padding-bottom: 0px;
+}
+
 .padding-top-bottom-5 {
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.padding-top-bottom-0 {
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .padding-top-5 {
@@ -593,6 +630,7 @@ pre code {
 .padding-20 {
     padding: 20px;
 }
+
 
 /* Margins */
 
@@ -709,6 +747,11 @@ pre code {
     margin-right: 50px;
 }
 
+.margin-left-right-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 .margin-left-50 {
     margin-left: 50px;
 }
@@ -772,6 +815,7 @@ pre code {
 .margin-20 {
     margin: 20px;
 }
+
 
 /* 2.7. Positions
    ========================================================================== */
@@ -843,6 +887,7 @@ pre code {
     transform: translate(-50%, -50%);
 }
 
+
 /* Positions 0px */
 
 .pos-left-top-0px {
@@ -893,6 +938,7 @@ pre code {
     transform: translateX(-50%);
 }
 
+
 /* ==========================================================================
    3. Container width
    ========================================================================== */
@@ -923,6 +969,7 @@ pre code {
         width: calc(100% - 20px);
     }
 }
+
 
 /* ==========================================================================
    4. Flex grid
@@ -1088,6 +1135,7 @@ pre code {
     }
 }
 
+
 /* 4.1. Flex column margins
    ========================================================================== */
 
@@ -1105,16 +1153,16 @@ pre code {
 }
 
 .column-l-r-margin-20 {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .column-r-margin-20 {
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .column-l-margin-20 {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .column-l-r-margin-10 {
@@ -1214,6 +1262,7 @@ pre code {
     }
 }
 
+
 /* ==========================================================================
    5. Min-height flex center
    ========================================================================== */
@@ -1225,6 +1274,7 @@ pre code {
     height: 100%;
     min-height: 100vh;
 }
+
 
 /* ==========================================================================
    6. Colors
@@ -1239,6 +1289,7 @@ body {
     --bg-light: #f5f5f5;
     --bg-dark: #111517;
 }
+
 
 /* 6.1. Background colors
    ========================================================================== */
@@ -1258,6 +1309,7 @@ body {
 .blog-content-bg {
     background-color: #f0f0f0;
 }
+
 
 /* 6.2. Text colors
    ========================================================================== */
@@ -1363,6 +1415,7 @@ body {
     mix-blend-mode: difference;
 }
 
+
 /* 6.3. Text hover colors
    ========================================================================== */
 
@@ -1378,6 +1431,7 @@ body {
 .text-hover-to-black:hover {
     color: #000 !important;
 }
+
 
 /* 6.4. Half background
    ========================================================================== */
@@ -1404,6 +1458,7 @@ body {
 .half-bg-dark:before {
     background-color: var(--bg-dark);
 }
+
 
 /* 6.4.1. Half background borders fix
    ========================================================================== */
@@ -1435,6 +1490,7 @@ body {
     content: normal;
 }
 
+
 /* ==========================================================================
    7. Animsition preloader
    ========================================================================== */
@@ -1459,6 +1515,7 @@ body {
 .js-animsition-overlay-slide {
     background-color: transparent;
 }
+
 
 /* 7.1. Preloader in/out
    ========================================================================== */
@@ -1515,6 +1572,7 @@ body {
     transform: translateX(105%);
 }
 
+
 /* 7.2. Preloader loading
    ========================================================================== */
 
@@ -1531,7 +1589,7 @@ body {
 }
 
 .preloader__loading-anim {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 35px;
     font-weight: 300;
     letter-spacing: 5px;
@@ -1571,6 +1629,7 @@ body {
     -webkit-transform: translateX(0);
     transform: translateX(0);
 }
+
 
 /* 7.2.1. Preloader loading dots animation
    ========================================================================== */
@@ -1616,6 +1675,7 @@ body {
         opacity: 0;
     }
 }
+
 
 /* ==========================================================================
    8. Custom mouse cursor
@@ -1701,7 +1761,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
 }
 
 .drag {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     line-height: 1;
     font-size: 15px;
 }
@@ -1714,6 +1774,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
     transition-delay: .2s;
 }
 
+
 /* ==========================================================================
    9. Header
    ========================================================================== */
@@ -1725,6 +1786,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
 .js-page-in .fixed-header {
     opacity: 1;
 }
+
 
 /* 9.1. Header logo
    ========================================================================== */
@@ -1768,6 +1830,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
     transform: translateY(0);
     transition-delay: 1s;
 }
+
 
 /* 9.2. Navigation open button
    ========================================================================== */
@@ -1864,6 +1927,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
     transition-delay: .2s;
 }
 
+
 /* 9.3. Navigation close button
    ========================================================================== */
 
@@ -1915,6 +1979,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
     transition-delay: 0s;
 }
 
+
 /* 9.4. Landing header
    ========================================================================== */
 
@@ -1923,6 +1988,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
         display: none;
     }
 }
+
 
 /* ==========================================================================
    10. Navigation
@@ -1974,6 +2040,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
     position: relative;
 }
 
+
 /* 10.1. Navigation menu box
    ========================================================================== */
 
@@ -1986,6 +2053,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
     height: 100%;
     position: relative;
 }
+
 
 /* 10.2. Navigation buttons
    ========================================================================== */
@@ -2076,6 +2144,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
     transition-delay: .44s;
 }
 
+
 /* 10.2.1. Navigation active buttons
    ========================================================================== */
 
@@ -2156,6 +2225,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
 .js-nav-active .nav-btn-box .nav-btn-box .nav-btn-box:nth-child(12) .nav-btn {
     transition-delay: 2.1s;
 }
+
 
 /* 10.2.2. Navigation active page out buttons
    ========================================================================== */
@@ -2238,15 +2308,16 @@ body.js-page-in-anim-active.js-page-out .pointer {
     transition-delay: .44s;
 }
 
+
 /* 10.2.3. Navigation buttons style
    ========================================================================== */
 
 .nav-btn__inner {
     margin: 0;
     padding: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 60px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.2;
     letter-spacing: 5px;
     text-transform: uppercase;
@@ -2306,6 +2377,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
     }
 }
 
+
 /* 10.2.4. Navigation buttons hover effect
    ========================================================================== */
 
@@ -2334,6 +2406,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
 .nav-btn:hover .nav-btn__inner:before {
     width: 100%;
 }
+
 
 /* 10.3. Navigation drop down
    ========================================================================== */
@@ -2368,6 +2441,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
 .js-dropdown-is-active-2lvl .js-dropdown.js-dropdown-is-active {
     pointer-events: none;
 }
+
 
 /* 10.3.1. Navigation drop down close button
    ========================================================================== */
@@ -2495,6 +2569,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
 .js-dropdown-is-active-2lvl .js-dropdown-close-2lvl {
     pointer-events: auto;
 }
+
 
 /* 10.3.2. Navigation drop down menu
    ========================================================================== */
@@ -2700,6 +2775,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
     transition-delay: 1.7s;
 }
 
+
 /* 10.4. Navigation backgrounds
    ========================================================================== */
 
@@ -2734,6 +2810,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
     transform: scale(1);
 }
 
+
 /* 10.4.1. Navigation backgrounds overlay
    ========================================================================== */
 
@@ -2764,6 +2841,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
     transform: translate(-50%, -50%);
     transition-delay: .3s;
 }
+
 
 /* 10.5. Landing Navigation
    ========================================================================== */
@@ -2810,7 +2888,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
     .landing-nav__btn {
         display: inline-block;
         margin-right: 50px;
-        font-family: 'Lato', sans-serif;
+        font-family: 'Garet-Book';
         font-size: 13px;
         font-weight: 400;
         letter-spacing: 2px;
@@ -2873,13 +2951,14 @@ body.js-page-in-anim-active.js-page-out .pointer {
     }
 }
 
+
 /* ==========================================================================
    11. Footer
    ========================================================================== */
 
 .footer-nav-btn {
     opacity: .6;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 4px;
@@ -2892,7 +2971,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
 }
 
 .copyright {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 10px;
     font-weight: 300;
     letter-spacing: 5px;
@@ -2911,6 +2990,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
 }
+
 
 /* main content overlay fix */
 
@@ -2933,6 +3013,7 @@ body.js-page-in-anim-active.js-page-out .pointer {
 .has-scroll-smooth .page-head-footer-overlay-fix.is-inview * {
     pointer-events: auto !important;
 }
+
 
 /* ==========================================================================
    12. Magnific popup
@@ -2977,18 +3058,20 @@ body.js-page-in-anim-active.js-page-out .pointer {
     box-shadow: none;
 }
 
+
 /* 12.1. Popup counter
    ========================================================================== */
 
 .mfp-counter {
     right: 50%;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 13px;
     font-weight: 300;
     color: #fff;
     -webkit-transform: translateX(50%);
     transform: translateX(50%);
 }
+
 
 /* 12.2. Popup close button
    ========================================================================== */
@@ -3061,9 +3144,11 @@ button.mfp-close {
     top: -30px;
 }
 
+
 /* ==========================================================================
    13. Swiper & popup arrows
    ========================================================================== */
+
 
 /* 13.1. Popup arrows
    ========================================================================== */
@@ -3145,6 +3230,7 @@ button.mfp-close {
     }
 }
 
+
 /* 13.2. Swiper arrows
    ========================================================================== */
 
@@ -3225,6 +3311,7 @@ button.mfp-close {
 .swiper-button-next:focus {
     outline: none !important;
 }
+
 
 /* 13.3. Swiper & popup arrows animations
    ========================================================================== */
@@ -3323,6 +3410,7 @@ button.mfp-close {
     transform: translate(-50%, -50%) scaleX(1);
 }
 
+
 /* ==========================================================================
    14. Swiper pagination
    ========================================================================== */
@@ -3410,6 +3498,7 @@ button.mfp-close {
     outline: none !important;
 }
 
+
 /* 14.1. Dynamic pagination
    ========================================================================== */
 
@@ -3482,6 +3571,7 @@ button.mfp-close {
     transform: rotate(-90deg) scale(.33) !important;
 }
 
+
 /* 14.2. Counter pagination
    ========================================================================== */
 
@@ -3518,7 +3608,7 @@ button.mfp-close {
     position: absolute;
     left: 50%;
     top: 50%;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 13px;
     font-weight: 400;
     line-height: 1;
@@ -3546,7 +3636,7 @@ button.mfp-close {
 .swiper-pagination-bullet:nth-child(8):after,
 .swiper-pagination-bullet:nth-child(9):before,
 .swiper-pagination-bullet:nth-child(9):after {
-    content: '0' counter(paginationIndex);
+    content: '0', counter(paginationIndex);
 }
 
 .swiper-pagination-bullet:after {
@@ -3571,6 +3661,7 @@ button.mfp-close {
     transform: translateX(-50%) translateY(-50%);
 }
 
+
 /* 14.2.1. Counter pagination vertical
    ========================================================================== */
 
@@ -3590,6 +3681,7 @@ button.mfp-close {
     margin-bottom: 0 !important;
 }
 
+
 /* ==========================================================================
    15. Swiper sliders
    ========================================================================== */
@@ -3605,6 +3697,7 @@ button.mfp-close {
 .swiper-slide {
     overflow: hidden;
 }
+
 
 /* Carousel slider */
 
@@ -3718,6 +3811,7 @@ button.mfp-close {
     }
 }
 
+
 /* fullscreen slider */
 
 .js-fullscreen-slider {
@@ -3738,6 +3832,7 @@ button.mfp-close {
     transform: translateX(-50%);
 }
 
+
 /* slider parallax bg */
 
 .js-parallax-slide-bg {
@@ -3748,6 +3843,7 @@ button.mfp-close {
     top: 0;
     z-index: 0;
 }
+
 
 /* team/services sliders */
 
@@ -3760,9 +3856,11 @@ button.mfp-close {
     user-select: none;
 }
 
+
 /* ==========================================================================
    16. Scroll to buttons
    ========================================================================== */
+
 
 /* 16.1. To top button
    ========================================================================== */
@@ -3838,6 +3936,7 @@ button.mfp-close {
     background-color: #000;
 }
 
+
 /* 16.2. Scroll down button
    ========================================================================== */
 
@@ -3883,9 +3982,11 @@ button.mfp-close {
     bottom: 2px;
 }
 
+
 /* ==========================================================================
    17. Buttons
    ========================================================================== */
+
 
 /* 17.1. Skew button
    ========================================================================== */
@@ -3905,7 +4006,7 @@ button.mfp-close {
 
 .skew-btn__content {
     margin-right: 10px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 4px;
@@ -4010,6 +4111,7 @@ button.mfp-close {
     transform: translateY(-50%) rotate(-135deg);
 }
 
+
 /* 17.2. Border button
    ========================================================================== */
 
@@ -4021,7 +4123,7 @@ button.mfp-close {
 .border-btn__inner {
     display: inline-block;
     padding: 20px 33px 20px 40px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 12px;
     font-weight: 400;
     letter-spacing: 7px;
@@ -4182,6 +4284,7 @@ button.mfp-close {
     transform: scaleY(1);
 }
 
+
 /* 17.3. Flip button
    ========================================================================== */
 
@@ -4189,7 +4292,7 @@ button.mfp-close {
     display: inline-block;
     overflow: hidden;
     position: relative;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 12px;
     font-weight: 400;
     letter-spacing: 3px;
@@ -4229,6 +4332,7 @@ button.mfp-close {
     transform: translateY(0);
 }
 
+
 /* 17.4. Line button
    ========================================================================== */
 
@@ -4237,7 +4341,7 @@ button.mfp-close {
     overflow: hidden;
     padding-bottom: 3px;
     position: relative;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 13px;
     font-weight: 300;
     line-height: 1.2;
@@ -4286,6 +4390,7 @@ button.mfp-close {
     transition-delay: .25s;
 }
 
+
 /* 17.5. Play button
    ========================================================================== */
 
@@ -4321,12 +4426,13 @@ button.mfp-close {
     border-left: 32px solid rgba(0, 0, 0, .8);
 }
 
+
 /* ==========================================================================
    18. Typography
    ========================================================================== */
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 14px;
     font-weight: 400;
     -moz-osx-font-smoothing: grayscale;
@@ -4337,18 +4443,18 @@ button,
 input,
 select,
 textarea {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 14px;
     line-height: 1.75;
 }
 
 p {
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
 }
 
 a {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     text-decoration: none;
 }
 
@@ -4359,14 +4465,14 @@ h4,
 h5,
 h6 {
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     line-height: 1.2;
 }
 
 h1,
 h2,
 h3 {
-    font-weight: 700;
+    font-weight: 500;
 }
 
 h4,
@@ -4452,11 +4558,12 @@ h6 {
     white-space: nowrap;
 }
 
+
 /* 18.1. Big head
    ========================================================================== */
 
 .big-head {
-    font-family: 'Lato', sans-serif;
+    font-family: Garet-Book;
     font-size: 230px;
     font-weight: 900;
     line-height: 1;
@@ -4500,6 +4607,7 @@ h6 {
     }
 }
 
+
 /* 18.2. Headline
    ========================================================================== */
 
@@ -4509,77 +4617,77 @@ h6 {
 }
 
 .headline-xxxxl {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 94px;
     font-weight: 700;
     line-height: 1.2;
 }
 
 .headline-xxxl {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 86px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.2;
 }
 
 .headline-xxl {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 78px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.2;
 }
 
 .headline-xl {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 70px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.2;
 }
 
 .headline-l {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 62px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.2;
 }
 
 .headline-m {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 54px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.2;
 }
 
 .headline-s {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 46px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.2;
 }
 
 .headline-xs {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 38px;
     font-weight: 700;
     line-height: 1.2;
 }
 
 .headline-xxs {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 30px;
     font-weight: 700;
     line-height: 1.2;
 }
 
 .headline-xxxs {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 22px;
     font-weight: 700;
     line-height: 1.2;
 }
 
 .headline-xxxxs {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 14px;
     font-weight: 700;
     line-height: 1.2;
@@ -4750,6 +4858,7 @@ h6 {
     }
 }
 
+
 /* 18.3. Subhead
    ========================================================================== */
 
@@ -4759,49 +4868,49 @@ h6 {
 }
 
 .subhead-xxl {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 30px;
     font-weight: 300;
     line-height: 1.4;
 }
 
 .subhead-xl {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 27px;
     font-weight: 300;
     line-height: 1.4;
 }
 
 .subhead-l {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 24px;
     font-weight: 300;
     line-height: 1.4;
 }
 
 .subhead-m {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 21px;
     font-weight: 300;
     line-height: 1.4;
 }
 
 .subhead-s {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 18px;
     font-weight: 300;
     line-height: 1.4;
 }
 
 .subhead-xs {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 15px;
     font-weight: 300;
     line-height: 1.4;
 }
 
 .subhead-xxs {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 12px;
     font-weight: 300;
     line-height: 1.4;
@@ -4912,39 +5021,40 @@ h6 {
     }
 }
 
+
 /* 18.4. Body text
    ========================================================================== */
 
 .body-text-xl {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 21px;
     font-weight: 400;
     line-height: 1.9;
 }
 
 .body-text-l {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 19px;
     font-weight: 400;
     line-height: 1.9;
 }
 
 .body-text-m {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 17px;
     font-weight: 400;
     line-height: 1.9;
 }
 
 .body-text-s {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 15px;
     font-weight: 400;
     line-height: 1.9;
 }
 
 .body-text-xs {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 13px;
     font-weight: 400;
     line-height: 1.9;
@@ -5025,6 +5135,7 @@ h6 {
     }
 }
 
+
 /* 18.5. Quote
    ========================================================================== */
 
@@ -5039,7 +5150,7 @@ h6 {
     left: 0;
     top: 0;
     z-index: 4;
-    font-family: Font Awesome;
+    font-family: 'Nomark';
     font-size: 25px;
     line-height: 25px;
     color: #fff;
@@ -5074,9 +5185,11 @@ h6 {
     transform: translateX(-50%);
 }
 
+
 /* ==========================================================================
    19. Animations
    ========================================================================== */
+
 
 /* 19.1. Animation delays
    ========================================================================== */
@@ -5141,6 +5254,7 @@ h6 {
     transition-delay: 1s !important;
 }
 
+
 /* 19.2. Scale animation
    ========================================================================== */
 
@@ -5195,6 +5309,7 @@ h6 {
     transition-delay: .5s;
 }
 
+
 /* 19.3. Text slide animation
    ========================================================================== */
 
@@ -5211,6 +5326,7 @@ h6 {
     -webkit-transform: translateY(0);
     transform: translateY(0);
 }
+
 
 /* 19.4. Fade animation
    ========================================================================== */
@@ -5269,6 +5385,7 @@ h6 {
     transition-delay: 1.2s;
 }
 
+
 /* 19.5. Opacity scale animation
    ========================================================================== */
 
@@ -5289,6 +5406,7 @@ h6 {
     transform: none;
 }
 
+
 /* 19.6. Slider fade animation
    ========================================================================== */
 
@@ -5304,6 +5422,7 @@ h6 {
     -webkit-transform: none;
     transform: none;
 }
+
 
 /* 19.7. Video reveal animation
    ========================================================================== */
@@ -5344,6 +5463,7 @@ body .content-bg-dark .anim-video-reveal:before {
     -webkit-transform: translateX(105%);
     transform: translateX(105%);
 }
+
 
 /* 19.8. Image reveal animation
    ========================================================================== */
@@ -5396,6 +5516,7 @@ body .content-bg-dark .anim-img-reveal:before {
 .scrollanim-activate.is-inview .anim-img-reveal:after {
     width: 100%;
 }
+
 
 /* 19.9. Stroke animation
    ========================================================================== */
@@ -5454,6 +5575,7 @@ body .content-bg-dark .anim-img-reveal:before {
     transition-delay: 1s;
 }
 
+
 /* 19.10. Chars blur animation
    ========================================================================== */
 
@@ -5490,6 +5612,7 @@ body .content-bg-dark .anim-img-reveal:before {
 .swiper-slide.swiper-slide-active .anim-chars-blur .char {
     transition-delay: calc(.05s * var(--char-index) + 1s);
 }
+
 
 /* 19.11. Chars fade in animation
    ========================================================================== */
@@ -5529,6 +5652,7 @@ body .content-bg-dark .anim-img-reveal:before {
     transition: 1s cubic-bezier(.19, .94, .336, 1);
     transition-delay: calc(.05s * var(--char-index) + 1s);
 }
+
 
 /* 19.12. Split lines slide animation
    ========================================================================== */
@@ -5571,6 +5695,7 @@ body .content-bg-dark .anim-img-reveal:before {
     transition-delay: calc(.15s * var(--line-index) + 1.15s);
 }
 
+
 /* 19.13. Top/bottom lines animation
    ========================================================================== */
 
@@ -5580,7 +5705,7 @@ body .content-bg-dark .anim-img-reveal:before {
     height: 1px;
     position: absolute;
     left: 0;
-    background-color: #fff;
+    background-color: rgb(8, 8, 8);
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     -webkit-transform-origin: left;
@@ -5639,9 +5764,11 @@ body .content-bg-dark .anim-img-reveal:before {
     transition-delay: 1s;
 }
 
+
 /* ==========================================================================
    20. Hover effects
    ========================================================================== */
+
 
 /* 20.1. Slide hover
    ========================================================================== */
@@ -5677,6 +5804,7 @@ body .content-bg-dark .anim-img-reveal:before {
     -webkit-transform: translateY(0);
     transform: translateY(0);
 }
+
 
 /* 20.2. Stroke hover
    ========================================================================== */
@@ -5732,6 +5860,7 @@ body .hover-stroke-fill-black:before {
     width: 100%;
 }
 
+
 /* 20.3. Image hover scale
    ========================================================================== */
 
@@ -5744,6 +5873,7 @@ body .hover-stroke-fill-black:before {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
+
 
 /* ==========================================================================
    21. Title offset
@@ -5789,6 +5919,7 @@ body .hover-stroke-fill-black:before {
         margin-right: 0;
     }
 }
+
 
 /* ==========================================================================
    22. Forms
@@ -5849,6 +5980,7 @@ input[type='submit']:hover {
     background: none;
 }
 
+
 /* 22.1. Label
    ========================================================================== */
 
@@ -5858,7 +5990,7 @@ input[type='submit']:hover {
     top: 25px;
     z-index: 2;
     pointer-events: none;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -5916,6 +6048,7 @@ input[type='submit']:hover {
     transform: translateX(0) translateY(-50%);
 }
 
+
 /* 22.2. Input
    ========================================================================== */
 
@@ -5924,7 +6057,7 @@ input[type='submit']:hover {
     padding: 20px 10px;
     border: none;
     box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 1px;
@@ -5940,6 +6073,7 @@ textarea.form-input {
     height: 100%;
     min-height: 150px;
 }
+
 
 /* 22.3. Contact form alert
    ========================================================================== */
@@ -6024,7 +6158,7 @@ textarea.form-input {
     position: absolute;
     left: 50%;
     top: 50%;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-size: 12px;
     font-weight: 400;
     letter-spacing: 7px;
@@ -6044,6 +6178,7 @@ textarea.form-input {
 #send.js-active .btn-wait {
     opacity: 1;
 }
+
 
 /* 22.4. Search form
    ========================================================================== */
@@ -6092,6 +6227,7 @@ textarea.form-input {
 .search-btn:hover {
     opacity: 1;
 }
+
 
 /* ==========================================================================
    23. Post comments
@@ -6149,6 +6285,7 @@ textarea.form-input {
     }
 }
 
+
 /* ==========================================================================
    24. List styles
    ========================================================================== */
@@ -6175,6 +6312,7 @@ textarea.form-input {
     justify-content: flex-end;
 }
 
+
 /* 24.1. List item
    ========================================================================== */
 
@@ -6184,8 +6322,10 @@ textarea.form-input {
     line-height: 1;
 }
 
+
 /* 24.1.1. List item margins
    ========================================================================== */
+
 
 /* Defaul margins 10px */
 
@@ -6215,6 +6355,7 @@ textarea.form-input {
     margin-right: 0;
 }
 
+
 /* 1px margins */
 
 .list_margin-1px .list__item,
@@ -6241,6 +6382,7 @@ textarea.form-input {
     margin-left: 1px;
     margin-right: 0;
 }
+
 
 /* 20px margins */
 
@@ -6269,6 +6411,7 @@ textarea.form-input {
     margin-right: 0;
 }
 
+
 /* 30px margins */
 
 .list_margin-30px .list__item,
@@ -6296,6 +6439,7 @@ textarea.form-input {
     margin-right: 0;
 }
 
+
 /* 24.1.2. List item icons
    ========================================================================== */
 
@@ -6310,7 +6454,7 @@ textarea.form-input {
     left: 0;
     top: 50%;
     z-index: 4;
-    font-family: Font Awesome;
+    font-family: 'Nomark';
     font-size: 10px;
     color: #fff;
     -webkit-transform: translateY(-50%);
@@ -6338,6 +6482,7 @@ textarea.form-input {
     content: '\f00d';
 }
 
+
 /* 24.2. List counter
    ========================================================================== */
 
@@ -6352,7 +6497,7 @@ textarea.form-input {
 
 .list_counter .list__item:before {
     content: counter(listIndex);
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nomark';
     font-weight: 400;
 }
 
@@ -6365,8 +6510,9 @@ textarea.form-input {
 .list_counter .list__item:nth-child(7):before,
 .list_counter .list__item:nth-child(8):before,
 .list_counter .list__item:nth-child(9):before {
-    content: '0' counter(listIndex);
+    content: '0', counter(listIndex);
 }
+
 
 /* ==========================================================================
    25. Isotope grid
@@ -6442,6 +6588,7 @@ textarea.form-input {
     }
 }
 
+
 /* ==========================================================================
    26. Background overlay
    ========================================================================== */
@@ -6464,6 +6611,7 @@ textarea.form-input {
     opacity: .3;
 }
 
+
 /* ==========================================================================
    27. Testimonials author
    ========================================================================== */
@@ -6474,6 +6622,7 @@ textarea.form-input {
     margin-right: auto;
 }
 
+
 /* ==========================================================================
    28. Clients logo
    ========================================================================== */
@@ -6483,6 +6632,7 @@ textarea.form-input {
     max-width: 100px;
     max-height: 100px;
 }
+
 
 /* ==========================================================================
    29. Video background
@@ -6506,6 +6656,7 @@ textarea.form-input {
     transform: translate(-50%, -50%);
 }
 
+
 /* ==========================================================================
    30. Background parallax
    ========================================================================== */
@@ -6521,6 +6672,7 @@ textarea.form-input {
     background-repeat: no-repeat;
 }
 
+
 /* ==========================================================================
    31. Portfolio top offset
    ========================================================================== */
@@ -6534,6 +6686,7 @@ textarea.form-input {
         margin-top: 0;
     }
 }
+
 
 /* ==========================================================================
    32. Skills columns
@@ -6559,6 +6712,7 @@ textarea.form-input {
     }
 }
 
+
 /* ==========================================================================
    33. Price borders
    ========================================================================== */
@@ -6582,6 +6736,7 @@ textarea.form-input {
     border-top: 1px solid rgba(0, 0, 0, .2);
     border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
+
 
 /* ==========================================================================
    34. Top/bottom lines
@@ -6609,6 +6764,7 @@ textarea.form-input {
     background-color: #000;
 }
 
+
 /* ==========================================================================
    35. Blog pagination
    ========================================================================== */
@@ -6617,7 +6773,7 @@ textarea.form-input {
     overflow: hidden;
     display: inline-block;
     position: relative;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Garet-Book';
     font-size: 13px;
     font-weight: 500;
     letter-spacing: 3px;

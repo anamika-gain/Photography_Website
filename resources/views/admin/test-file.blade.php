@@ -24,19 +24,5 @@
         <img src="#" id="two">
     </label>
 </div>
-public function store(Request $request)
-{
-  $data = $request->all();
 
-  $leads = $data['Lead_id'];
 
-  $subject_ids = $data['Subject_id'];
-
-  //insert using foreach loop
-  foreach($leads as $key => $input) {
-    $scores = new Score();
-    $scores->Subject_id = isset($leads[$key]) ? $leads[$key] : ''; //add a default value here
-    $scores->Lead_id = isset($subject_ids[$key]) ? $subject_ids[$key] : ''; //add a default value here
-    $scores->save();
-  }
-  

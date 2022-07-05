@@ -14,7 +14,7 @@
                 </h6>
                 <br>
                 <div class="table-wrapper">
-                    <table id="datatable1" class="table display responsive nowrap">
+                    <table id="datatable1" class="table display responsive nowrap table-responsive">
                         <thead>
                             <tr>
                                 <th class="wd-5p">ID</th>
@@ -30,8 +30,8 @@
                             @foreach ($category as $row)
                                 <tr>
                                     <td>{{ $row->id }}</td>
-                                    <td>{{ $row->category_name }}</td>
-
+                                    <td><a href="{{ URL::to('admin/category/' . $row->id) }}" role="button"
+                                            style="">{{ $row->category_name }}</a></td>
                                     <td><img src="{{ URL::to($row->main_image) }}" style="height: 80px; width: 80px;">
                                     </td>
                                     <td>{{ $row->tag_line }}</td>
@@ -41,7 +41,7 @@
                                         @else
                                             <span class="badge badge-danger">Inactive</span>
                                         @endif
-                                        </td>
+                                    </td>
                                     <td class="wd-15p">
                                         @if ($row->show_in_slider == 1)
                                             <span class="badge badge-success">Active</span>

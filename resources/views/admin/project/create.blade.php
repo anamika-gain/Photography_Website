@@ -1,5 +1,8 @@
 @extends('admin.admin_layouts')
-
+@section('extra-css')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+@endsection
 @section('admin_content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css"
         crossorigin="anonymous">
@@ -11,8 +14,9 @@
         </nav>
         <div class="sl-pagebody">
             <div class="card pd-20 pd-sm-40">
-                <h6 class="card-body-title">New Add Form <a href="#" class="btn btn-success btn-sm pull-right">All
-                        Product</a></h6>
+                <h6 class="card-body-title">New Add Form <a href="{{ route('projects') }}"
+                        class="btn btn-success btn-sm pull-right">All
+                        Project</a></h6>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -49,7 +53,6 @@
                                         </select>
                                     </div>
                                 </div><!-- col-4 -->
-
                                 <!-- col-4 -->
                                 <div class="col-lg-4">
                                     <div class="form-group mg-b-10-force">
@@ -67,7 +70,16 @@
                                         <label class="form-control-label">Rolling Text: <span
                                                 class="tx-danger">*</span></label>
                                         <input type="text" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Tag Line" name="rolling_text">
+                                            aria-describedby="emailHelp" placeholder="rolling text" name="rolling_text">
+                                    </div>
+                                </div><!-- col-8 -->
+
+                                <div class="col-lg-4">
+                                    <div class="form-group mg-b-10-force">
+                                        <label class="form-control-label">Tag line: <span
+                                                class="tx-danger">*</span></label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" placeholder="Tag Line" name="tag_line">
                                     </div>
                                 </div><!-- col-8 -->
                                 <div class="col-lg-4">
@@ -106,42 +118,36 @@
                                     <div class="form-group mg-b-10-force">
                                         <label class="form-control-label">Project Info: <span
                                                 class="card-body-title"></span></label>
-
-                                        <input type="text" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" placeholder="Project Info" name="project_info">
-
+                                        <textarea class="form-control summernote" placeholder="Project Info" name="project_info"></textarea>
                                     </div>
                                 </div>
                             </div><!-- row -->
-
                             <div class="col-lg-4">
-
-
                                 <div class="form-layout-footer">
                                     <button class="btn btn-info mg-r-5">Submit Form</button>
-
                                 </div><!-- form-layout-footer -->
                             </div><!-- form-layout -->
                 </form>
-
             </div><!-- card -->
             <br>
-
-
-
         </div><!-- sl-pagebody -->
     </div><!-- sl-mainpanel -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+@endsection
+@section('extra-js')
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
     </script>
 
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
-        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"
-        crossorigin="anonymous"></script>
-
-
-
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
     <script type="text/javascript">
         function readURL(input) {
             if (input.files && input.files[0]) {
@@ -187,12 +193,10 @@
     <script type="text/javascript">
         $(function() {
             'use strict';
-
             // Inline editor
             var editor = new MediumEditor('.editable');
-
             // Summernote editor
-            $('#summernote').summernote({
+            $('.summernote').summernote({
                 height: 150,
                 tooltip: false
             })

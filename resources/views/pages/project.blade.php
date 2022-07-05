@@ -2,6 +2,7 @@
 @section('content')
     @include('frontend.master.menu')
 
+
     <div id="js-scroll-content">
         <!-- js-animsition-overlay start -->
         <div class="js-animsition-overlay" data-animsition-overlay="true">
@@ -17,11 +18,11 @@
                         <!-- flex-min-height-100vh start -->
                         <div class="flex-min-height-100vh">
                             <div class="padding-top-bottom-120 container text-center after-preloader-anim">
-                                <h2 class="headline-xxl headline-uppercase anim-chars-fadein" data-splitting>
+                                <h2 class="headline-xxl headline-uppercase anim-chars-fadein" data-splitting style="font-family: 'Nomark'">
                                     {{ $project->project_name }}
                                 </h2>
                                 <div data-scroll data-scroll-speed="-0.4" data-scroll-position="top">
-                                    <div class="subhead-s subhead-uppercase anim-chars-blur" data-splitting>
+                                    <div class="subhead-s subhead-uppercase anim-chars-blur" data-splitting style="font-family: 'Garet-Book'">
                                         PHOTOGRAPHY
                                     </div>
                                 </div>
@@ -40,382 +41,156 @@
                 </section>
                 <!-- page head end -->
                 <!-- section-bg-dark start -->
-                <section id="down" class="section-bg-dark" data-scroll-section>
+                <section id="down" class="section-bg-light" data-scroll-section>
                     <!-- padding-top-bottom-120 start -->
-                    <div class="padding-top-bottom-120">
+                    <div class="padding-top-bottom-10">
                         <!-- marquee start -->
-                        <div class="marquee headline-xl hidden-box" data-duration="10000" data-gap="20">
+                        <div class="marquee headline-xl text-color-black hidden-box" data-duration="10000" data-gap="20" style="font-family: 'Garet-Book'">
 
-                            <span class="text-stroke-white">UX Design</span> / Identity /
-                            Marketing / <span class="text-stroke-white">UX Design</span> /
-                            Identity / Marketing /
-                            <span class="text-stroke-white"></span> /
+                            <span class="text-stroke-black" style="font-family: 'Garet-Book'">{{ $project->rolling_text }}</span> /
+                            {{ $project->rolling_text }} / <span
+                                class="text-stroke-black" style="font-family: 'Garet-Book'">{{ $project->rolling_text }}</span>
+                            {{ $project->rolling_text }}
+                            <span class="text-stroke-black" style="font-family: 'Garet-Book'"></span>
                         </div>
                         <!-- marquee end -->
-
                         <!-- container start -->
-                        <div class="container padding-top-120">
+                        <div class="container big padding-top-10">
                             <!-- flex-container start -->
-                            <div class="flex-container padding-top-70 padding-bottom-90 pos-rel">
-                                <!-- anim-line-top -->
-
+                            <div class="flex-container container small padding-top-10">
                                 <!-- column start -->
-                                <div class="four-columns padding-top-20">
-                                    <div class="column-r-margin-20 scrollanim-activate" data-scroll
-                                        data-scroll-offset="20%">
-                                        <h3 class="headline-xxxs anim-fade-to-left">
-                                            Project info
-                                        </h3>
+                                <div class="four-columns column-100-999 padding-top-10">
+                                    <div class="column-r-margin-20-999">
+                                        <h3 class="headline-xxs text-color-black anim-split-lines" data-scroll
+                                            data-scroll-offset="20%">Project info</h3>
                                     </div>
                                 </div>
                                 <!-- column end -->
                                 <!-- column start -->
-                                <div class="eight-columns padding-top-20">
-                                    <div class="scrollanim-activate" data-scroll data-scroll-offset="20%">
-                                        <p class="body-text-m text-color-dadada anim-fade-to-left tr-delay-01">
-                                            {{ $project->project_info }}
+                                <div class="eight-columns column-100-999 padding-top-20 padding-bottom-20">
+                                    <p class="body-text-m text-color-6d6d6d anim-split-lines" data-scroll
+                                        data-scroll-offset="20%" > {{ $project->project_info }}</p>
+                                </div>
+                                <!-- column end -->
+                            </div>
+                            <!-- flex-container end -->
+                        </div>
+                        <!-- container end -->
+
+
+                        @foreach ($posts as $post)
+                            @php
+                                $view_post = DB::table('posts')
+                                    ->where('id', '=', $post->id)
+                                    ->increment('views');
+                            @endphp
+                            <!-- padding-top-60 start -->
+                            <div class="padding-top-10">
+                                <!-- flex-container start -->
+                                <div class="flex-container margin-left-right-5">
+                                    @if ($post->post_type == 'potrait')
+                                        <!-- column start -->
+                                        <div class="six-columns padding-top-10">
+                                            <acurology-PDnw5MhJyKI-unsplash
+                                                href="assets/images/portfolio/project_05/IMG_0527bw.jpg"
+                                                class="column-l-r-margin-20 d-block hidden-box js-pointer-zoom js-photo-popup">
+                                                <div class="scrollanim-activate" data-scroll data-scroll-speed="-1.3">
+                                                    <img class="anim-opacity-scale"
+                                                        src="{{ asset('public/media/post/' . $post->image_one) }}"
+                                                        alt="project image" />
+                                                </div>
+                                            </acurology-PDnw5MhJyKI-unsplash>
+                                        </div>
+                                        <!-- column end -->
+                                        <!-- column start -->
+                                        <div class="six-columns padding-top-10">
+                                            <a href="assets/images/portfolio/project_05/IMG_7878bw.jpg"
+                                                class="column-l-r-margin-20 d-block hidden-box js-pointer-zoom js-photo-popup">
+                                                <div class="scrollanim-activate" data-scroll data-scroll-speed="-1.3">
+                                                    <img class="anim-opacity-scale"
+                                                        src="{{ asset('public/media/post/' . $post->image_two) }}"
+                                                        alt="project image" />
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!-- column end -->
+                                    @elseif ($post->post_type == 'landscape')
+                                        <!-- column start -->
+                                        <div class="twelve-columns padding-top-10">
+                                            <a href="assets/images/portfolio/project_05/IMG_1833.jpg"
+                                                class="column-l-r-margin-20 d-block hidden-box js-pointer-zoom js-photo-popup">
+                                                <div class="scrollanim-activate" data-scroll data-scroll-speed="-1.3">
+                                                    <img class="anim-opacity-scale"
+                                                        src="{{ asset('public/media/post/' . $post->image_one) }}"
+                                                        alt="project image" />
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!-- column end -->
+
+                                </div>
+                                <!-- flex-container end -->
+                            </div>
+                            <!-- padding-top-60 end -->
+                        @elseif ($post->post_type == 'text')
+                            <!-- container start -->
+                            <div class="container big padding-top-60 padding-bottom-40">
+                                <div class="padding-top-60">
+                                    <div class="scrollanim-activate" data-scroll data-scroll-offset="30%">
+                                        <h2 class="headline-xxs text-color-black anim-split-lines" style="font-family: 'Garet-Book'">
+                                            {{ $post->post_name }}
+                                        </h2>
+                                        <p class="body-text-s text-color-black margin-top-20 anim-split-lines">
+                                            {!! $post->text !!}
                                         </p>
                                     </div>
                                 </div>
-
-
-                                <!-- anim-line-bottom -->
-
-                            </div>
-                            <!-- flex-container end -->
-                        </div>
+                        @endif
                         <!-- container end -->
-
-
-
-                        <!-- padding-top-60 start -->
-                        <div class="padding-top-60">
-                            <!-- flex-container start -->
-                            <div class="flex-container margin-left-right-20">
-                                <!-- column start -->
-                                <div class="six-columns padding-top-60">
-                                    <acurology-PDnw5MhJyKI-unsplash href="assets/images/portfolio/project_05/IMG_0527bw.jpg"
-                                        class="column-l-r-margin-20 d-block hidden-box js-pointer-zoom js-photo-popup">
-                                        <div class="scrollanim-activate" data-scroll data-scroll-speed="-1.3">
-                                            <img class="anim-opacity-scale"
-                                                src="{{ asset('public/frontend/assets/images/portfolio/project_05/IMG_0527bw.jpg') }}"
-                                                alt="project image" />
-                                        </div>
-                                    </acurology-PDnw5MhJyKI-unsplash>
-                                </div>
-                                <!-- column end -->
-                                <!-- column start -->
-                                <div class="six-columns padding-top-60">
-                                    <a href="assets/images/portfolio/project_05/IMG_7878bw.jpg"
-                                        class="column-l-r-margin-20 d-block hidden-box js-pointer-zoom js-photo-popup">
-                                        <div class="scrollanim-activate" data-scroll data-scroll-speed="-1.3">
-                                            <img class="anim-opacity-scale"
-                                                src="{{ asset('public/frontend/assets/images/portfolio/project_05/IMG_7878bw.JPG') }}"
-                                                alt="project image" />
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- column end -->
-                                <!-- column start -->
-                                <div class="twelve-columns padding-top-60">
-                                    <a href="assets/images/portfolio/project_05/IMG_1833.jpg"
-                                        class="column-l-r-margin-20 d-block hidden-box js-pointer-zoom js-photo-popup">
-                                        <div class="scrollanim-activate" data-scroll data-scroll-speed="-1.3">
-                                            <img class="anim-opacity-scale"
-                                                src="{{ asset('public/frontend/assets/images/portfolio/project_05/IMG_1833.jpg') }}"
-                                                alt="project image" />
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- column end -->
-                            </div>
-                            <!-- flex-container end -->
-                        </div>
-                        <!-- padding-top-60 end -->
                     </div>
-                    <!-- padding-top-bottom-120 end -->
+                    @endforeach
                 </section>
-                <!-- section-bg-dark end -->
+
+
+                <!-- padding-top-bottom-120 end -->
+
+
             </main>
-            <!-- section-bg-light start -->
-            <section class="section-bg-light" data-scroll-section>
-                <!-- flex-min-height-100vh start -->
-                <div class="flex-min-height-100vh">
-                    <!-- flex-container start -->
-                    <div class="container flex-container padding-top-60 padding-bottom-120">
-                        <!-- column start -->
-                        <div class="eight-columns column-100-999 padding-top-60">
-                            <div class="column-r-margin-40-999 scrollanim-activate" data-scroll data-scroll-offset="30%">
-                                <h2 class="headline-xxs text-color-black anim-split-lines">
-                                    Brooklyn whatever chia deep
-                                </h2>
-                                <p class="body-text-m text-color-6d6d6d margin-top-20 anim-split-lines">
-                                    3 wolf moon microdosing scenester, tilde roof party
-                                    affogato typewriter celiac echo park craft beer bicycle
-                                    rights man braid trust fund four dollar toast gentrify.
-                                    IPhone humblebrag kale chips hell of. Brooklyn whatever
-                                    chia deep v slow-carb lomo put a bird on. Retro jean
-                                    shorts cronut lumbersexual mixtape hella you probably
-                                    haven't heard of them austin williamsburg af mustache
-                                    pinterest. Mixtape kinfolk cray, wolf palo santo brunch
-                                    iPhone.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- column end -->
 
-                        <!-- column start -->
-                        <div class="four-columns column-100-999 padding-top-60">
-                            <!-- list start -->
-                            <ul class="list list_counter text-color-black scrollanim-activate" data-scroll
-                                data-scroll-offset="30%">
-                                <li class="list__item black opacity-05 hidden-box">
-                                    <p class="subhead-xs anim-text-slide">Mlkshk YOLO</p>
-                                </li>
-                                <li class="list__item black opacity-05 hidden-box">
-                                    <p class="subhead-xs anim-text-slide tr-delay-01">
-                                        Leggings vinyl
-                                    </p>
-                                </li>
-                                <li class="list__item black opacity-05 hidden-box">
-                                    <p class="subhead-xs anim-text-slide tr-delay-02">
-                                        Crucifix stumptown
-                                    </p>
-                                </li>
-                                <li class="list__item black opacity-05 hidden-box">
-                                    <p class="subhead-xs anim-text-slide tr-delay-03">
-                                        Pabst venmo gentrify
-                                    </p>
-                                </li>
-                                <li class="list__item black opacity-05 hidden-box">
-                                    <p class="subhead-xs anim-text-slide tr-delay-04">
-                                        Deep v microdosing
-                                    </p>
-                                </li>
-                                <li class="list__item black opacity-05 hidden-box">
-                                    <p class="subhead-xs anim-text-slide tr-delay-05">
-                                        Migas occupy master
-                                    </p>
-                                </li>
-                                <li class="list__item black opacity-05 hidden-box">
-                                    <p class="subhead-xs anim-text-slide tr-delay-06">
-                                        Cleanse intelligentsia
-                                    </p>
-                                </li>
-                            </ul>
-                            <!-- list end -->
-                        </div>
-                        <!-- column end -->
-                    </div>
-                    <!-- flex-container end -->
-                </div>
-                <!-- flex-min-height-100vh end -->
+            {{-- {{ dd($next_project) }} --}}
 
-                <!-- padding-bottom-120 start -->
-                <div class="padding-bottom-120">
-                    <!-- flex-container start -->
-                    <div class="flex-container margin-left-right-20">
-                        <!-- column start -->
-                        <div class="twelve-columns">
-                            <a href="assets/images/portfolio/project_05/6.jpg"
-                                class="column-l-r-margin-20 d-block hidden-box js-pointer-zoom js-photo-popup">
-                                <div class="scrollanim-activate" data-scroll data-scroll-speed="-1.3">
-                                    <img class="anim-opacity-scale"
-                                        src="{{ asset('public/frontend/assets/images/portfolio/project_05/6.jpg') }}"
-                                        alt="project image" />
-                                </div>
-                            </a>
-                        </div>
-                        <!-- column end -->
-                        @foreach ($posts as $post)
-                            <!-- column start -->
-                            <div class="six-columns padding-top-60">
-                                <a href="assets/images/portfolio/project_05/1.jpg"
-                                    class="column-l-r-margin-20 d-block hidden-box js-pointer-zoom js-photo-popup">
-                                    <div class="scrollanim-activate" data-scroll data-scroll-speed="-1.3">
-                                        <img class="anim-opacity-scale" src="{{ asset($post->image_one) }}"
-                                            alt="project image" />
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- column end -->
-                            <!-- column start -->
-                            <div class="six-columns padding-top-60">
-                                <a href="assets/images/portfolio/project_05/2.jpg"
-                                    class="column-l-r-margin-20 d-block hidden-box js-pointer-zoom js-photo-popup">
-                                    <div class="scrollanim-activate" data-scroll data-scroll-speed="-1.3">
-                                        <img class="anim-opacity-scale" src="{{ asset($post->image_two) }}"
-                                            alt="project image" />
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- column end -->
-                        @endforeach
-
-
-
-                        <!-- column start -->
-                        <div class="six-columns padding-top-60">
-                            <a href="assets/images/portfolio/project_05/3.jpg"
-                                class="column-l-r-margin-20 d-block hidden-box js-pointer-zoom js-photo-popup">
-                                <div class="scrollanim-activate" data-scroll data-scroll-speed="-1.3">
-                                    <img class="anim-opacity-scale"
-                                        src="{{ asset('public/frontend/assets/images/portfolio/project_05/1.jpg') }}"
-                                        alt="project image" />
-                                </div>
-                            </a>
-                        </div>
-                        <!-- column end -->
-
-                        <!-- column start -->
-                        <div class="six-columns padding-top-60">
-                            <a href="assets/images/portfolio/project_05/4.jpg"
-                                class="column-l-r-margin-20 d-block hidden-box js-pointer-zoom js-photo-popup">
-                                <div class="scrollanim-activate" data-scroll data-scroll-speed="-1.3">
-                                    <img class="anim-opacity-scale"
-                                        src="{{ asset('public/frontend/assets/images/portfolio/project_05/1.jpg') }}"
-                                        alt="project image" />
-                                </div>
-                            </a>
-                        </div>
-                        <!-- column end -->
-
-                        <!-- column start -->
-                        <div class="twelve-columns padding-top-60">
-                            <a href="assets/images/portfolio/project_05/5.jpg"
-                                class="column-l-r-margin-20 d-block hidden-box js-pointer-zoom js-photo-popup">
-                                <div class="scrollanim-activate" data-scroll data-scroll-speed="-1.3">
-                                    <img class="anim-opacity-scale"
-                                        src="{{ asset('public/frontend/assets/images/portfolio/project_05/1.jpg') }}"
-                                        alt="project image" />
-                                </div>
-                            </a>
-                        </div>
-                        <!-- column end -->
-                    </div>
-                    <!-- flex-container end -->
-                </div>
-                <!-- padding-bottom-120 end -->
-            </section>
-            <!-- section-bg-light end -->
-
-            <!-- section-bg-dark start -->
+            <!-- next project start -->
             <section class="section-bg-dark" data-scroll-section>
-                <!-- flex-min-height-100vh start -->
-                <div class="flex-min-height-100vh">
-                    <!-- container start -->
-                    <div class="container small padding-top-60 padding-bottom-120">
-                        <div class="padding-top-60">
-                            <div class="scrollanim-activate" data-scroll data-scroll-offset="30%">
-                                <h2 class="headline-xxs anim-split-lines">
-                                    Chillwave cronut messenger
-                                </h2>
-                                <p class="body-text-s text-color-dadada margin-top-20 anim-split-lines">
-                                    IPhone humblebrag kale chips hell of. Brooklyn whatever
-                                    chia deep v slow-carb lomo put a bird on. Mlkshk YOLO
-                                    wolf, leggings vinyl crucifix stumptown tousled. Pabst
-                                    venmo gentrify deep v microdosing migas occupy master
-                                    cleanse intelligentsia sartorial chia activated charcoal.
-                                    Iceland small batch live-edge raclette roof party
-                                    dreamcatcher austin pickled. Chillwave cronut messenger
-                                    bag truffaut. 3 wolf moon microdosing scenester, tilde
-                                    roof party affogato typewriter celiac echo park craft beer
-                                    bicycle rights man braid trust fund four dollar toast
-                                    gentrify.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="padding-top-60">
-                            <div class="scrollanim-activate" data-scroll data-scroll-offset="30%">
-                                <h2 class="headline-xxs anim-split-lines">
-                                    Mixtape kinfolk cray
-                                </h2>
-                                <p class="body-text-s text-color-dadada margin-top-20 anim-split-lines">
-                                    Mlkshk YOLO wolf, leggings vinyl crucifix stumptown
-                                    tousled. Pabst venmo gentrify deep v microdosing migas
-                                    occupy master cleanse intelligentsia sartorial chia
-                                    activated charcoal. Iceland small batch live-edge raclette
-                                    roof party dreamcatcher austin pickled. Chillwave cronut
-                                    messenger bag truffaut.<br /><br />Mixtape kinfolk cray,
-                                    wolf palo santo brunch iPhone. 3 wolf moon microdosing
-                                    scenester, tilde roof party affogato typewriter celiac
-                                    echo park craft beer bicycle rights man braid trust fund
-                                    four dollar toast gentrify. IPhone humblebrag kale chips
-                                    hell of. Brooklyn whatever chia deep v slow-carb lomo put
-                                    a bird on.
-                                </p>
-                            </div>
+                <div class="flex-min-height-100vh pos-rel" data-scroll data-scroll-speed="-4" data-scroll-position="bottom">
+                    <div class="width-100perc padding-top-bottom-10 pos-rel">
+                        <a href="{{ route('project.post', $next_project->id) }}" class="container small d-block js-pointer-large js-animsition-link">
+                            <img src="{{ asset($next_project->main_image) }}" alt="project" />
+                        </a>
+                        <div class="pos-abs pos-center-center width-100perc hidden-box text-color-mix-blend pointer-none">
+                            <h2 class="marquee headline-xxxl headline-uppercase hidden-box" data-duration="10000"
+                                data-gap="20"style="font-family: 'Nomark'">
+                                {{ $next_project->rolling_text }}
+
+                            </h2>
                         </div>
                     </div>
-                    <!-- container end -->
-                </div>
-                <!-- flex-min-height-100vh end -->
-            </section>
-            <!-- section-bg-dark end -->
 
-            <!-- section-bg-light start -->
-            <section class="section-bg-light" data-scroll-section>
-                <!-- flex-min-height-100vh start -->
-                <div class="flex-min-height-100vh">
-                    <!-- width-100perc start -->
-                    <div class="width-100perc padding-top-60 padding-bottom-120">
-                        <!-- flex-container start -->
-                        <div class="flex-container margin-left-right-20">
-                            <!-- column start -->
-                            <div class="six-columns padding-top-60">
-                                <a href="assets/images/portfolio/project_05/7.jpg"
-                                    class="column-l-r-margin-20 d-block hidden-box js-pointer-zoom js-photo-popup">
-                                    <div class="scrollanim-activate" data-scroll data-scroll-speed="-1.3">
-                                        <img class="anim-opacity-scale"
-                                            src="{{ asset('public/frontend/assets/images/portfolio/project_05/1.jpg') }}"
-                                            alt="project image" />
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- column end -->
-
-                            <!-- column start -->
-                            <div class="six-columns padding-top-60">
-                                <a href="assets/images/portfolio/project_05/10.jpg"
-                                    class="column-l-r-margin-20 d-block hidden-box js-pointer-zoom js-photo-popup">
-                                    <div class="scrollanim-activate" data-scroll data-scroll-speed="-1.3">
-                                        <img class="anim-opacity-scale"
-                                            src="{{ asset('public/frontend/assets/images/portfolio/project_05/1.jpg') }}"
-                                            alt="project image" />
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- column end -->
-                        </div>
-                        <!-- flex-container end -->
-
-                        <!-- container start -->
-                        <div class="container small padding-top-120">
-                            <div class="scrollanim-activate" data-scroll data-scroll-offset="30%">
-                                <h2 class="headline-xxs text-color-black anim-split-lines">
-                                    Pabst venmo gentrify deep
-                                </h2>
-                                <p class="body-text-s text-color-6d6d6d margin-top-20 anim-split-lines">
-                                    Iceland small batch live-edge raclette roof party
-                                    dreamcatcher austin pickled. IPhone humblebrag kale chips
-                                    hell of. Brooklyn whatever chia deep v slow-carb lomo put
-                                    a bird on. Mlkshk YOLO wolf, leggings vinyl crucifix
-                                    stumptown tousled. Pabst venmo gentrify deep v microdosing
-                                    migas occupy master cleanse intelligentsia sartorial chia
-                                    activated charcoal. Chillwave cronut messenger bag
-                                    truffaut. 3 wolf moon microdosing scenester, tilde roof
-                                    party affogato typewriter celiac echo park craft beer
-                                    bicycle rights man braid trust fund four dollar toast
-                                    gentrify.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- container end -->
+                    <!-- next-project-footer start -->
+                    <div class="next-project-footer container">
+                        <p class="copyright margin-right-30">
+                            &copy; Copyright 2022 by
+                            <a href="#" class="copyright__author js-pointer-small">DRAWHOUSE.</a>
+                        </p>
+                        <!-- to top btn start -->
+                        <a href="#up" class="scroll-to-btn js-pointer-large" data-scroll data-scroll-repeat data-scroll-to>
+                            <span class="scroll-to-btn__arrow"></span>
+                        </a>
+                        <!-- to top btn end -->
                     </div>
-                    <!-- width-100perc end -->
+                    <!-- next-project-footer end -->
                 </div>
-                <!-- flex-min-height-100vh end -->
             </section>
+            <!-- next project end -->
         </div>
     </div>
 @endsection
